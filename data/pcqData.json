@@ -1,0 +1,60 @@
+{
+  "urls": {
+    "home": "https://pcq.aat.platform.hmcts.net/invoker",
+    "startPage": "https://pcq.aat.platform.hmcts.net/start-page",
+    "dOBPage": "https://pcq.aat.platform.hmcts.net/date-of-birth",
+    "langPage": "https://pcq.aat.platform.hmcts.net/language",
+    "sexPage": "https://pcq.aat.platform.hmcts.net/sex",
+    "sameSexPage": "https://pcq.aat.platform.hmcts.net/gender-same-as-sex",
+    "orientationPage": "https://pcq.aat.platform.hmcts.net/sexual-orientation",
+    "marriagePage": "https://pcq.aat.platform.hmcts.net/marital-status",
+    "ethnicityPage": "https://pcq.aat.platform.hmcts.net/ethnic-group",
+    "religionPage": "https://pcq.aat.platform.hmcts.net/religion",
+    "disabilityPage": "https://pcq.aat.platform.hmcts.net/disability",
+    "pregnancyPage": "https://pcq.aat.platform.hmcts.net/pregnant",
+    "endPage": "https://pcq.aat.platform.hmcts.net/end-page"
+  },
+  "links": {
+    "cymraeg": "Cymraeg"
+  },
+  "elementNames": {
+    "skipToMain": "Skip to main content",
+    "feedbackLink": "feedback",
+    "continueBtn": "Continue",
+    "dontAnswerBtn": "I don't want to answer these questions",
+    "fill": "Fill",
+    "generateToken": "Generate Token",
+    "invoke": "Invoke",
+    "startPageH1": "Equality and diversity questions",
+    "startPageP": "Your answers will help us check",
+    "dateOfBirthH1": "What is your date of birth?",
+    "labelT": "Prefer not to say",
+    "languageH1": "What is your main language?",
+    "sexH1": "What is your sex?",
+    "genderSameAsSexH1": "Is your gender the same as the sex you were registered at birth?",
+    "sexualOrientationH1": "Which of the following best describes how you think of yourself?",
+    "maritalStatusH1": "Are you married or in a legally registered civil partnership?",
+    "ethnicGroupH1": "What is your ethnic group?",
+    "religionH1": "What is your religion?",
+    "disabilityH1": "Do you have any physical or mental health conditions or illnesses lasting or expected to last 12 months or more?",
+    "pregnantH1": "Are you pregnant or have you been pregnant in the last year?",
+    "endPageH1": "You have answered the equality questions",
+    "endPageP": "The next steps ",
+    "privPolPageH1": "Privacy Policy",
+    "privPolPageH2": "Who manages this service",
+    "privPolPageH3": "Before you submit your information",
+    "privPolPageP": "This privacy policy explains"
+  },
+  "locators": {
+    "mainContent": "#main-content",
+    "cymraegLink": "a.govuk-link.language",
+    "serviceIdInput": "input#serviceId",
+    "tokenInput": "input#token",
+    "footerWelshLink": "footer a",
+    "footerHidden": "footer [aria-hidden=\"true\"]"
+  },
+  "texts": {
+    "newTabWarning": "(opens in new tab)"
+  },
+  "inputs": {}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:all": "npx playwright test tests",
+    "test-allure:all": "rm -rf ./allure-results && npm run test:all --reporter=line,allure-playwright",
+    "test:smoke": "npx playwright test tests --grep @smoke",
+    "test-allure:smoke": "rm -rf ./allure-results && npm run test:smoke --reporter=line,allure-playwright",
+    "test:pcq-chromium": "npx playwright test --project=pcq-chromium",
+    "test:pcq-firefox": "npx playwright test --project=pcq-firefox",
+    "test:pcq-webkit": "npx playwright test --project=pcq-webkit",
+    "test:pcq-chrome": "npx playwright test --project=pcq-chrome",
+    "test:pcq-edge": "npx playwright test --project =pcq-edge",
+    "test:pcq-iphone": "npx playwright test --project=pcq-iphone",
+    "test:pcq-ipad": "npx playwright test --project=pcq-ipad",
+    "test:pcq-head-test": "npx playwright test --project=pcq-head-test",
+    "test:checklist": "npx playwright test tests --grep @checklist",
+    "test-allure:checklist": "rm -rf ./allure-results && npm run test:checklist --reporter=line,allure-playwright",
+    "allure-generate": "allure generate ./allure-results --clean && allure open ./allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.3",
+    "allure-playwright": "^3.3.0"
+  }
+}
