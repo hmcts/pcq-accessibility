@@ -42,4 +42,3 @@ npm run test:pcq-head-test
 ## Best Practices
 
 - Use tags (e.g., `@checklist`, `@smoke`) for filtering
-# pcq-accessibility
