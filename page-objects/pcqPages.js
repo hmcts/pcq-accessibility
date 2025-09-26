@@ -210,6 +210,31 @@ class pcqPages {
     const visibleText = await feedbackLink.textContent();
     expect(visibleText.toLowerCase()).toContain(this.texts.newTabWarning);
   }
+
+  async uniqueLinksCheck() {
+    const links = this.page.locator("a");
+    const count = await links.count();
+    const visibleLinks = [];
+    for (let i = 0; i < count; i++) {
+      const link = links.nth(i);
+      if (await link.isVisible()) {
+        const text = (await link.innerText()).trim().toLowerCase();
+        const href = await link.getAttribute("href");
+        visibleLinks.push({ text, href });
+      }
+    }
+    for (let i = 0; i < visibleLinks.length; i++) {
+      for (let j = 0; j < visibleLinks.length; j++) {
+        if (i !== j) {
+          if (visibleLinks[i].text === visibleLinks[j].text) {
+            expect(visibleLinks[i].href).toBe(visibleLinks[j].href);
+          } else {
+            expect(visibleLinks[i].text).not.toBe(visibleLinks[j].text);
+          }
+        }
+      }
+    }
+  }
 }
 
 module.exports = { pcqPages };
