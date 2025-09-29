@@ -49,7 +49,6 @@ describe("@pcq @startPage", () => {
   });
 
   test("@checklist 7. Colour contrast", async ({ page }) => {
-    // Must perform Manual check
     await axe.audit({ rules: "color-contrast" });
     await page
       .getByRole("link", { name: data.elementNames.feedbackLink })
@@ -76,29 +75,7 @@ describe("@pcq @startPage", () => {
   test("@checklist 9. Links are unique", async ({ page }) => {
     await axe.audit({ rules: "link-name" });
     await axe.audit({ rules: "link-in-text-block" });
-
-    const links = page.locator("a");
-    const count = await links.count();
-    const visibleLinks = [];
-    for (let i = 0; i < count; i++) {
-      const link = links.nth(i);
-      if (await link.isVisible()) {
-        const text = (await link.innerText()).trim().toLowerCase();
-        const href = await link.getAttribute("href");
-        visibleLinks.push({ text, href });
-      }
-    }
-    for (let i = 0; i < visibleLinks.length; i++) {
-      for (let j = 0; j < visibleLinks.length; j++) {
-        if (i !== j) {
-          if (visibleLinks[i].text === visibleLinks[j].text) {
-            expect(visibleLinks[i].href).toBe(visibleLinks[j].href);
-          } else {
-            expect(visibleLinks[i].text).not.toBe(visibleLinks[j].text);
-          }
-        }
-      }
-    }
+    await start.uniqueLinksCheck();
   });
 
   test("@checklist 10. Correct language", async ({ page }) => {
