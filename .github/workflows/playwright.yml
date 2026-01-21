@@ -14,8 +14,6 @@ jobs:
 
     env:
       BASE_URL: ${{ secrets.BASE_URL }}
-      USERNAME: ${{ secrets.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
 
     steps:
       - name: Checkout repo
@@ -35,7 +33,12 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      - name: Install Playwright browsers
+      - name: Install Playwright (Chromium only)
+        if: github.event_name != 'schedule'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright (all browsers)
+        if: github.event_name == 'schedule'
         run: npx playwright install --with-deps
 
       - name: Run monthly tests (Allure)
