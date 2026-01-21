@@ -5,31 +5,37 @@ This project is set up for automated UI accessibility testing of PCQ pages using
 ## Running Tests
 
 **Run Checklist Tests**
-
-> This is to run tests and view results using Allure Reporting.
-> First run the following
-
+>This is to run tests and view results using Allure Reporting.
+First run the following
 ```sh
 npm run test-allure:checklist
 ```
-
-Once tests have completed, run the following to open the Allure report
-
+Once tests have completed, run the following to generate Allure reports
 ```sh
-npm run allure-generate
+npm run allure:generate
 ```
-
+Once Allure reports have generated, run the following to open the Allure report
+```sh
+npm run allure:open
+```
 **Run all tests on all browsers:**
-
 ```sh
 npm run test-allure:all
 ```
 
 **Run tests in headed mode (For test purpose):**
-Uncomment lines 118-127 in the `playwright.config.js` file.
+Uncomment lines 114-123 in the `playwright.config.js` file.
 
 ```sh
 npm run test:pcq-head-test
+```
+
+**Open Allure from GitHub Actions Artifacts:**
+Once run is complete download the uploaded allure-report.
+Unzip the folder
+cd to that folder
+```sh
+run: npx allure open .
 ```
 
 ## Structure
