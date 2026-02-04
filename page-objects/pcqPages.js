@@ -149,41 +149,34 @@ class pcqPages {
     await expect(await skipLink.getAttribute('href')).toBe(this.locators.mainContent);
   }
   async pageTitleUnique() {
-    const titles = [];
-    await this.page.goto('/start-page');
-    titles.push(await this.page.title());
-    await this.page.goto('/date-of-birth');
-    titles.push(await this.page.title());
-    await this.page.goto('/language');
-    titles.push(await this.page.title());
-    await this.page.goto('/sex');
-    titles.push(await this.page.title());
-    await this.page.goto('/gender-same-as-sex');
-    titles.push(await this.page.title());
-    await this.page.goto('/sexual-orientation');
-    titles.push(await this.page.title());
-    await this.page.goto('/marital-status');
-    titles.push(await this.page.title());
-    await this.page.goto('/ethnic-group');
-    titles.push(await this.page.title());
-    await this.page.goto('/religion');
-    titles.push(await this.page.title());
-    await this.page.goto('/disability');
-    titles.push(await this.page.title());
-    await this.page.goto('/pregnant');
-    titles.push(await this.page.title());
-    await this.page.goto('/end-page');
-    titles.push(await this.page.title());
-    await this.page.goto('/privacy-policy');
-    titles.push(await this.page.title());
+    const routes = [
+      '/start-page',
+      '/date-of-birth',
+      '/language',
+      '/sex',
+      '/gender-same-as-sex',
+      '/sexual-orientation',
+      '/marital-status',
+      '/ethnic-group',
+      '/religion',
+      '/disability',
+      '/pregnant',
+      '/end-page',
+      '/privacy-policy',
+    ];
 
-    for (let i = 0; i < titles.length; i++) {
-      for (let j = 0; j < titles.length; j++) {
-        if (i !== j) {
-          expect(titles[i]).not.toBe(titles[j]);
-        }
-      }
+    const titles = [];
+
+    for (const route of routes) {
+      await this.page.goto(route, { waitUntil: 'domcontentloaded' });
+
+      await expect(this.page).toHaveURL(new RegExp(`${route}$`));
+
+      titles.push(await this.page.title());
     }
+
+    const uniqueTitles = new Set(titles);
+    expect(uniqueTitles.size).toBe(titles.length);
   }
   async feedbackLinkNewTabCheck() {
     const feedbackLink = this.page.getByRole('link', {
