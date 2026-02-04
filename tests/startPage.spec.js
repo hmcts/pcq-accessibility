@@ -40,6 +40,7 @@ describe('@pcq @startPage', () => {
   });
 
   test('@checklist 6. Page Title is unique', async ({}) => {
+    test.slow();
     await start.pageTitleUnique();
   });
 

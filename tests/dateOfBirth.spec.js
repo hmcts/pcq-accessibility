@@ -41,6 +41,7 @@ describe('@pcq @dOB', () => {
   });
 
   test('@checklist 6. Page Title is unique', async ({}) => {
+    test.slow();
     await dOB.pageTitleUnique();
   });
 

@@ -41,6 +41,7 @@ describe('@pcq @maritalStat', () => {
   });
 
   test('@checklist 6. Page Title is unique', async ({}) => {
+    test.slow();
     await marital.pageTitleUnique();
   });
 

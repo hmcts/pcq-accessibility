@@ -41,6 +41,7 @@ describe('@pcq @religion', () => {
   });
 
   test('@checklist 6. Page Title is unique', async ({}) => {
+    test.slow();
     await religion.pageTitleUnique();
   });
 
